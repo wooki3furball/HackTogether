@@ -88,7 +88,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%); /* Center the form relative to its position */
-        width: 400px;
+        width: 1000px;
+        height: 700px;
         background: #222;
         z-index: 1000;
         display: flex;
@@ -161,7 +162,7 @@
   </section>
   
   <form on:submit|preventDefault={handleSubmit}>
-    <h3>HackTogether Form</h3>
+    <h3>Hack Together Form</h3>
     
     <label for="projectName">Project Name</label>
     <input type="text" placeholder="Project Name" bind:value={projectName} id="projectName" required>

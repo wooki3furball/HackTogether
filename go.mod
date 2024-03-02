@@ -1,4 +1,4 @@
-module toegether
+module Toegether
 
 go 1.21.1
 

@@ -1,11 +1,10 @@
 package main
 
 import (
-	"crypto/sha256"
-	"encoding/binary"
 	"fmt"
 	"math/rand"
-	"time"
+
+	"Toegether/mtd" // Local Module/relative_directory with package
 
 	"github.com/gin-gonic/gin"
 )
@@ -24,6 +23,7 @@ func setupStaticFiles(app *gin.Engine) {
 	}
 }
 
+const charsetAlpha = "abcdefghijklmnopqrstuvwxyz"
 const charsetAlphaNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
 func main() {
@@ -32,46 +32,33 @@ func main() {
 	setupStaticFiles(app)
 
 	// Generate a random string
-	randomStr := randomString(10, charsetAlphaNum)
+	randomStr := mtd.RandomString(10, charsetAlphaNum)
 	// Seed the randomness with the generated string
-	seedRandomnessWithString(randomStr)
-	randomDuration := generateRandomTimeInterval()
+	mtd.SeedRandomnessWithString(randomStr)
+	randomDuration := mtd.GenerateRandomTimeInterval()
 	fmt.Println("Random Time Interval:", randomDuration)
+
+	// Generate a random number of endpoints, e.g., between 1 and 10
+	numEndpoints := rand.Intn(10) + 1
+	fmt.Printf("Creating %d random endpoints\n", numEndpoints)
+
+	for i := 0; i < numEndpoints; i++ {
+		// Generate a random path and message for each endpoint
+		randomPath := "/" + mtd.RandomString(5, charsetAlpha) // Random path like /abcde
+		randomMessage := "Message for " + randomPath
+
+		// Register the endpoint using the factory
+		app.GET(randomPath, mtd.EndpointFactory(randomPath, randomMessage))
+	}
 
 	// Default Route Port
 	app.Run(":8080")
-}
-
-// randomString generates a random string of length n using a specified character set.
-func randomString(n int, charset string) string {
-	var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))
-	b := make([]byte, n)
-	for i := range b {
-		b[i] = charset[seededRand.Intn(len(charset))]
-	}
-	return string(b)
-}
-
-// seedRandomnessWithString takes a string, hashes it, and uses it to seed the random number generator.
-func seedRandomnessWithString(s string) {
-	hash := sha256.Sum256([]byte(s))
-	seed := int64(binary.BigEndian.Uint64(hash[:8]))
-	rand.Seed(seed)
-}
-
-func generateRandomTimeInterval() time.Duration {
-	// (inclusive)
-	min, max := 30, 120
-	randomSeconds := rand.Intn(max-min+1) + min
-
-	// Convert the random number of seconds to a time.Duration and return
-	return time.Duration(randomSeconds) * time.Second
 }
 
 // Flags for algorithm to reconfigure in shorter time periods for Project Demo
 
 // Factory Functions for endpoint generation
 
-// Memento Function // Prevent SQL Injection/Brute Force?
+// MTD Algorithm with a time interval, calls strategy to reconfigure code
 
-// MTD Algorithm with a time interval, calls strategy to reconfiggure code
+// Place Query functions in main.go

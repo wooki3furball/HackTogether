@@ -37,7 +37,8 @@
 }
 
 body {
-  background-image: url("my-app/src/lib/assets/img/background.png");
+  /* background-image: url("my-app/src/lib/assets/img/background.png"); */
+  background-color: #ff512f;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -84,7 +85,7 @@ body {
 }
 
 form {
-  height: 520px;
+  height: 600px;
   width: 400px;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
@@ -124,6 +125,19 @@ input {
   display: block;
   height: 50px;
 }
+
+button {
+    margin-top: 10px;
+    width: 100%;
+    background-color: #4285f4; /* Set your desired background color */
+    color: #fff; /* Set text color */
+    padding: 15px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+  }
 </style>
 
 <div class="background">

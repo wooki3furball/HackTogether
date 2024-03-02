@@ -1,6 +1,8 @@
 <script lang="js">
 	import Navbar from '$lib/components/navbar.svelte';
-  import Testimonial from '$lib/components/testimonial.svelte';
+	import Testimonial from '$lib/components/testimonial.svelte';
+	import Pricing from '$lib/components/pricing.svelte';
+	import CallToAction from '$lib/components/callToAction.svelte';
 	import lady from '$lib/assets/img/lady-img.jpg';
 	import demo from '$lib/assets/img/Demo.png';
 	import iphone6 from '$lib/assets/img/iphone6.png';
@@ -9,82 +11,8 @@
 
 <Navbar />
 <Testimonial />
-
-<section id="pricing">
-	<h2>A Plan for Every Dog's Needs</h2>
-	<p>Simple and affordable price plans for your dog.</p>
-
-	<div class="row">
-		<div class="pricing-column col-lg-4 col-md-6">
-			<div class="card">
-				<div class="card-header">
-					<h3>Chihuahua</h3>
-				</div>
-				<div class="card-body">
-					<h2>Free</h2>
-					<p>5 Matches per Day</p>
-					<p>10 Matches per Day</p>
-					<p>Unlimited App Usage</p>
-					<button type="button" class="btn btn-lg btn-block btn-dark"> Sign Up </button>
-				</div>
-			</div>
-		</div>
-
-		<div class="pricing-column col-lg-4 col-md-6">
-			<div class="card">
-				<div class="card-header">
-					<h3>Labrador</h3>
-				</div>
-				<div class="card-body">
-					<h2>$49 / month</h2>
-					<p>Unlimited Matches</p>
-					<p>Unlimited Messages</p>
-					<p>Unlimited App Usage</p>
-					<button type="button" class="btn btn-lg btn-block btn-dark"> Sign Up </button>
-				</div>
-			</div>
-		</div>
-
-		<div class="pricing-column col-lg-4">
-			<div class="card">
-				<div class="card-header">
-					<h3>Mastiff</h3>
-				</div>
-				<div class="card-body">
-					<h2>$99 / month</h2>
-					<p>Priority Listing</p>
-					<p>Unlimited Messages</p>
-					<p>Unlimited App Usage</p>
-					<button type="button" class="btn btn-lg btn-block btn-dark"> Sign Up </button>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-<section id="cta">
-	<h4 id="footer-text">Find the True Love of Your Dog's Life Today.</h4>
-	<button type="button" class="btn btn-dark btn-lg download-button">
-		<i class="fab fa-apple"></i> Download
-	</button>
-	<button type="button" class="btn btn-light btn-lg download-button">
-		<i class="fab fa-google-play"></i> Download
-	</button>
-</section>
-
-<!-- Footer -->
-
-<!-- <footer id="footer">
-    <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-twitter"></i></a>
-    <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-facebook-f"></i></a>
-    <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-instagram"></i></a>
-    <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-linkedin-in"></i></i></a>
-    <p id="copyright-text">© Copyright 2023 TinDog</p>
-    <p id="trademark-text">
-      Made with <i class="fas heart-icon fa-heart"></i> and
-      <a href="#"><i class="fab boot-icon fa-bootstrap"></i></a> by Niladri Chatterjee.
-    </p>
-  </footer> -->
+<Pricing />
+<CallToAction />
 
 <style>
 	body {

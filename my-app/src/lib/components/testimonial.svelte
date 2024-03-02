@@ -9,9 +9,9 @@
 	<section id="testimonials">
 		<div id="testimonial-carousel" class="testimonialBS" data-ride="false">
 			<h2 class="mx-5 pt-3 fs-2 z-index:2">
-				I no longer have to wander through parks feeling lost and disconnected. I've discovered the
-				most enchanting community of foot enthusiasts on Toegether. Finally, a place where my
-				passion is understood and shared. It's truly a step in the right direction for love.
+				As a developer who has always believed in the power of collaboration, finding 
+				Hack Together was a game-changer for me. It's not just a platform; 
+				it's a community where creativity meets technology. 
 			</h2>
 			<img class="testimonial-image" src={bizinsider} alt="dog-profile" />
 			<em>Peebles, New York</em>
@@ -34,9 +34,11 @@
 
 	#testimonials {
 		text-align: center;
-		background-color: #ef8172;
-		color: #fff;
-		z-index: 1;
+		background-color: #0f0;
+		color: #000000;
+		z-index: 4;
+		position: relative;
+		
 	}
 
 	h2 {
@@ -53,9 +55,11 @@
 	}
 
 	#press {
-		background-color: #ef8172;
+		background-color: #0f0;
 		text-align: center;
 		padding-bottom: 3%;
+		position: relative;
+		z-index: 4;
 	}
 
 	.press-logo {

@@ -1,8 +1,5 @@
 <section id="cta">
-	<h4 id="footer-text" class="py-4">Find Your True Love Today</h4>
-	<button type="button" class="btn btn-dark btn-lg download-button">
-		<i class="fab fa-apple"></i> Download
-	</button>
+	<h4 id="footer-text" class="py-4">Find Your New Dev Team Today!</h4>
 	<button type="button" class="btn btn-light btn-lg download-button">
 		<i class="fab fa-google-play"></i> Download
 	</button>
@@ -10,7 +7,7 @@
 
 <style>
     #cta {
-		background-color: #ef8172;
+		background-color: #000000;
 		text-align: center;
 		color: #fff;
 		padding: 4% 15%;

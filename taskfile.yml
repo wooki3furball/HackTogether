@@ -1,0 +1,61 @@
+# Author: Michael Bopp
+# Filename: Taskfile.yml
+# Description: Similar to a Makefile w/o GNU dependency & utilizing YAML.
+# Date Created: 3/01/24
+# Last Edited: 3/02/24
+# Dependency: https://taskfile.dev/installation/
+
+# Installing Taskfile with Go Compiler Toolchain:
+# go install github.com/go-task/task/v3/cmd/task@latest
+
+# Useful Commands:
+# task --list-all
+# task --list-all --json
+# task --list --json
+version: '3'
+
+vars:
+  CURRENT_DIR:
+    sh: pwd
+
+tasks:
+  print-dir:
+    desc: "Prints the current directory path."
+    cmds:
+      - echo '{{.CURRENT_DIR}}'
+    aliases: ['p']
+  build:
+    desc: "Compiles a standalone Go application binary."
+    cmds:
+      - go build . # go build -trimpath -o ./Digital_Ocean.exe . # (Alternative Testing)
+    aliases: ['b']
+  run:
+    desc: "Runs the Go application with a local .env file for testing."
+    cmds:
+      - go run . -t
+    aliases: ['r']
+  postgres:
+    desc: "Executes a Docker command to interact with a local PostgresDB container."
+    cmds:
+    - docker exec -it Postgres psql -U exampleuser -d exampledb
+    aliases: ['pg']
+  dump-db:
+    desc: "Dumps the PostgreSQL database to a file."
+    cmds:
+      - docker exec -t Postgres pg_dump -U exampleuser -d exampledb > backup.sql
+    aliases: ['pd']
+  restore-db:
+    desc: "Restores the PostgreSQL database from a dump file."
+    cmds:
+      - docker exec -i Postgres psql -U exampleuser -d exampledb < backup.sql
+    aliases: ['pr']
+  clean:
+    desc: "Cleans up the directory by removing compiled outputs."
+    cmds:
+      - |
+        if [ "{{OS}}" = "windows" ]; then
+          cmd /c del *.out *.exe
+        else
+          rm -f *.out *.exe
+        fi
+    aliases: ['c']

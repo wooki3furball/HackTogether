@@ -1,14 +1,66 @@
 <script>
-    // import Login from "$lib/components/login"
-    import Login from '$lib/components/login.svelte';
-    let username = "";
-    let password = "";
-  
-    const handleLogin = () => {
-      // Handle login logic here
-      console.log("Logging in...");
-    };
+  let name = '';
+  let email = '';
+
+  async function handleSubmit(event) {
+    // Prevent the default form submission behavior
+    event.preventDefault();
+
+    // Form data to be sent
+    const formData = { name, email };
+
+    // Call the function to send the data to your backend
+    await sendFormData(formData);
+  }
+
+  // Function to send form data to the backend
+  async function sendFormData(formData) {
+    try {
+      const response = await fetch('http://localhost:8080/login', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Error: ${response.statusText}`);
+      }
+
+      const result = await response.json();
+      console.log('Submission successful', result);
+      // Handle success response
+    } catch (error) {
+      console.error('Submission failed', error);
+      // Handle error
+    }
+  }
 </script>
+
+<form on:submit={handleSubmit}>
+  <input type="text" bind:value={name} placeholder="Name">
+  <input type="email" bind:value={email} placeholder="Email">
+  <button type="submit">Submit</button>
+</form>
+
+
+<div class="background">
+    <div class="shape"></div>
+    <div class="shape"></div>
+</div>
+
+<form on:submit|preventDefault={handleLogin}>
+    <h3>Login Here</h3>
+
+    <label for="username">Username</label>
+    <input type="text" placeholder="Email or Phone" bind:value={username} id="username" />
+
+    <label for="password">Password</label>
+    <input type="password" placeholder="Password" bind:value={password} id="password" />
+
+    <button type="submit">Log In</button>
+</form>
 
 <style>
     *,
@@ -159,19 +211,4 @@
     }
 </style>
 
-<div class="background">
-    <div class="shape"></div>
-    <div class="shape"></div>
-</div>
 
-<form on:submit|preventDefault={handleLogin}>
-    <h3>Login Here</h3>
-
-    <label for="username">Username</label>
-    <input type="text" placeholder="Email or Phone" bind:value={username} id="username" />
-
-    <label for="password">Password</label>
-    <input type="password" placeholder="Password" bind:value={password} id="password" />
-
-    <button type="submit">Log In</button>
-</form>

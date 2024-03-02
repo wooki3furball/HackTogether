@@ -1,5 +1,5 @@
 <script lang="js">
-	import purpleFoot from '$lib/assets/img/images-2.png';
+	import purpleFoot from '$lib/assets/img/hackerImage.jpg';
 </script>
 
 <section id="title">
@@ -18,7 +18,7 @@
 			>
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<a class="navbar-brand" href="">Toegether</a>
+			<a class="navbar-brand" href="">Hack Together</a>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
@@ -42,12 +42,9 @@
 		<div class="titleBS">
 			<div class="row">
 				<div class="col-lg-7">
-					<h1>Hot Feet in Your Area!</h1>
+					<h1>Find Opponents to Hack Against!</h1>
 					<button type="button" class="btn btn-dark btn-lg download-button">
 						<i class="fab fa-apple"></i> Download
-					</button>
-					<button type="button" class="btn btn-outline-light btn-lg download-button">
-						<i class="fab fa-google-play"></i> Download
 					</button>
 				</div>
 			</div>
@@ -57,7 +54,7 @@
 
 <style>
 	#title {
-		background-color: #ff4c68;
+		background-color: #000000;
 		color: #fff;
 	}
 

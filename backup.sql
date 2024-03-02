@@ -54,7 +54,7 @@ ALTER TYPE public.age_enum OWNER TO exampleuser;
 CREATE TYPE public.fragrance_enum AS ENUM (
     'Cheesy',
     'Fungus Amongus',
-    'Sweet'
+    'Floral'
 );
 
 

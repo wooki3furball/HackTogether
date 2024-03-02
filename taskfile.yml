@@ -2,7 +2,7 @@
 # Filename: Taskfile.yml
 # Description: Similar to a Makefile w/o GNU dependency & utilizing YAML.
 # Date Created: 3/01/24
-# Last Edited: 3/01/24
+# Last Edited: 3/02/24
 # Dependency: https://taskfile.dev/installation/
 
 # Installing Taskfile with Go Compiler Toolchain:
@@ -38,7 +38,12 @@ tasks:
     desc: "Executes a Docker command to interact with a local PostgresDB container."
     cmds:
     - docker exec -it Postgres psql -U exampleuser -d exampledb
-    aliases: ['g']
+    aliases: ['pg']
+  dump-db:
+    desc: "Dumps the PostgreSQL database to a file."
+    cmds:
+      - docker exec -t Postgres pg_dump -U exampleuser -d exampledb > backup.sql
+    aliases: ['pd']
   clean:
     desc: "Cleans up the directory by removing compiled outputs."
     cmds:

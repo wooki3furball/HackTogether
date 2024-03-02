@@ -44,6 +44,11 @@ tasks:
     cmds:
       - docker exec -t Postgres pg_dump -U exampleuser -d exampledb > backup.sql
     aliases: ['pd']
+  restore-db:
+    desc: "Restores the PostgreSQL database from a dump file."
+    cmds:
+      - docker exec -i Postgres psql -U exampleuser -d exampledb < backup.sql
+    aliases: ['pr']
   clean:
     desc: "Cleans up the directory by removing compiled outputs."
     cmds:

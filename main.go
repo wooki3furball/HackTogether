@@ -6,6 +6,7 @@ import (
 
 	"Toegether/mtd" // Local Module/relative_directory with package
 
+	"github.com/gin-gonic/contrib/sessions"
 	"github.com/gin-gonic/gin"
 )
 
@@ -50,6 +51,31 @@ func main() {
 		// Register the endpoint using the factory
 		app.GET(randomPath, mtd.EndpointFactory(randomPath, randomMessage))
 	}
+
+	store := sessions.NewCookieStore([]byte("secret"))
+	app.Use(sessions.Sessions("mysession", store))
+
+	caretaker := &Caretaker{}
+
+	app.GET("/login", func(c *gin.Context) {
+		session := sessions.Default(c)
+		session.Set("name", "Gopher")
+		session.Save()
+
+		// Save session state
+		originator := &SessionOriginator{session: session}
+		caretaker.AddMemento(originator.SaveToSessionMemento())
+	})
+
+	app.GET("/restore", func(c *gin.Context) {
+		session := sessions.Default(c)
+		originator := &SessionOriginator{session: session}
+
+		// Assuming we want to restore the first saved state
+		if len(caretaker.mementoList) > 0 {
+			originator.RestoreFromSessionMemento(caretaker.GetMemento(0))
+		}
+	})
 
 	// Default Route Port
 	app.Run(":8080")

@@ -9,9 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-const charsetAlpha = "abcdefghijklmnopqrstuvwxyz"
-const charsetAlphaNum = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-
 // randomString generates a random string of length n using a specified character set.
 func RandomString(n int, charset string) string {
 	var seededRand *rand.Rand = rand.New(rand.NewSource(time.Now().UnixNano()))

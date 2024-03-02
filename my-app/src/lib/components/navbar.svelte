@@ -31,8 +31,11 @@
 					<li class="nav-item">
 						<a class="nav-link" href="#cta">Download</a>
 					</li>
+					<li class="nav-item aboutLink">
+						<a class="nav-link" href="/about">About</a>
+					</li>
 				</ul>
-				<div class="col-lg-6">
+				<div class="col-md-6">
 					<img class="iphone-image" src={purpleFoot} alt="iphone-mockup" />
 				</div>
 			</div>
@@ -56,6 +59,11 @@
 	#title {
 		background-color: #000000;
 		color: #fff;
+	}
+
+	.aboutLink {
+		position: relative;
+		z-index: 77;
 	}
 
 	h1 {

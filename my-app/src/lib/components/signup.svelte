@@ -1,170 +1,175 @@
 <script>
-  import { navigate } from 'svelte-routing';
+  let username = "";
+  let password = "";
+  let name = "";
+  let numberOfSpans = 64;
 
-  let name = '';
-  let username = '';
-  let password = '';
-  let confirmPassword = '';
-  let error = '';
+  const handleSubmit = async () => {
+    // Implement your login logic here (e.g., sending data to server)
+    console.log("Username:", username);
+    console.log("Password:", password);
 
-  const handleSignup = (event) => {
-    event.preventDefault();
-
-    // Basic validation
-    if (!name || !username || !password || !confirmPassword) {
-      error = 'Please fill in all required fields.';
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      error = 'Passwords do not match.';
-      return;
-    }
-
-    // Handle signup logic here (e.g., send data to server)
-    console.log('Signing up...');
-    error = ''; // Clear error on successful submission
+    // Replace this with your actual login functionality (e.g., sending data to server)
+    alert("Login submitted!");
   };
 </script>
 
 <style>
-  *,
-*:before,
-*:after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-body {
-  /* background-image: url("my-app/src/lib/assets/img/background.png"); */
-  background-color: #ff512f;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+  }
 
-.background {
-  width: 430px;
-  height: 520px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
-}
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #000;
+  }
 
-.background .shape {
-  height: 200px;
-  width: 200px;
-  position: absolute;
-  border-radius: 50%;
-}
+  section {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    flex-wrap: wrap;
+    overflow: hidden;
+    z-index: 1; /* Set a higher z-index for the login form to appear on top */
+  }
 
-.shape:first-child {
-  background: linear-gradient(
-    #1845ad,
-    #23a2f6
-  );
-  left: -80px;
-  top: -80px;
-}
-
-.shape:last-child {
-  background: linear-gradient(
-    to right,
-    #ff512f,
-    #f09819
-  );
-  right: -30px;
-  bottom: -80px;
-}
-
-form {
-  height: 600px;
-  width: 400px;
-  background-color: rgba(255, 255, 255, 0.13);
-  position: absolute;
-  transform: translate(-50%, -50%);
-  top: 50%;
-  left: 50%;
-  border-radius: 10px;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
-  padding: 50px 35px;
-}
-
-form * {
-  font-family: 'Poppins', sans-serif;
-  color: #0c0000;
-  letter-spacing: 0.5px;
-  outline: none;
-  border: none;
-}
-
-form h3 {
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 42px;
-  text-align: center;
-}
-
-label {
-  display: block;
-  margin-top: 30px;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-input {
-  display: block;
-  height: 50px;
-}
-
-button {
-    margin-top: 10px;
+  section::before {
+    content: '';
+    position: absolute;
     width: 100%;
-    background-color: #4285f4; /* Set your desired background color */
-    color: #fff; /* Set text color */
-    padding: 15px 0;
-    font-size: 18px;
+    height: 100%;
+    background: linear-gradient(#000, #0f0, #000);
+    animation: animate 5s linear infinite;
+  }
+
+  @keyframes animate {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(100%);
+    }
+  }
+
+  section span {
+    position: relative;
+    display: block;
+    width: calc(6.25vw - 2px);
+    height: calc(6.25vw - 2px);
+    background: #181818;
+    z-index: 2;
+    transition: 1.5s;
+  }
+
+  section span:hover {
+    background: #0f0;
+    transition: 0s;
+  }
+
+  form {
+    z-index: 3; /* Ensure the login form appears on top */
+  }
+
+  form {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); /* Center the form relative to its position */
+      width: 400px;
+      background: #222;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      border-radius: 4px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9);
+      flex-direction: column;
+      gap: 25px;
+  }
+
+
+  form h3 {
+    font-size: 2em;
+    color: #0f0;
+    text-transform: uppercase;
+  }
+
+  form label {
+    color: #fff;
+  }
+
+  form input {
+    position: relative;
+    width: 100%;
+    background: #333;
+    border: none;
+    outline: none;
+    padding: 15px 10px;
+    border-radius: 4px;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1em;
+  }
+
+  form button {
+    padding: 10px;
+    background: #0f0;
+    color: #000;
     font-weight: 600;
-    border-radius: 5px;
+    font-size: 1.35em;
+    letter-spacing: 0.05em;
     cursor: pointer;
-    text-align: center;
+  }
+
+  form button:active {
+    opacity: 0.6;
+  }
+
+  @media (max-width: 900px) {
+    section span {
+      width: calc(10vw - 2px);
+      height: calc(10vw - 2px);
+    }
+  }
+
+  @media (max-width: 600px) {
+    section span {
+      width: calc(20vw - 2px);
+      height: calc(20vw - 2px);
+    }
   }
 </style>
 
-<div class="background">
-  <div class="shape"></div>
-  <div class="shape"></div>
-</div>
+<section>
+  {#each Array(numberOfSpans) as _, index (index)}
+  <span></span>
+{/each}
+</section>
 
-<form on:submit|preventDefault={handleSignup}>
-  <h3>Sign Up Here</h3>
+<form on:submit|preventDefault={handleSubmit}>
+  <h3>Login Here</h3>
 
-  {#if error}
-    <p style="color: red;">{error}</p>
-  {/if}
-
-  <label for="name">First Name</label>
-  <input type="text" placeholder="Enter Name" bind:value={name} id="name" required>
-
+  <label for="name">Name</label>
+  <input type="name" placeholder="Name" bind:value={name} id="name" required>
+  
   <label for="username">Username</label>
   <input type="text" placeholder="Username" bind:value={username} id="username" required>
-
+  
   <label for="password">Password</label>
   <input type="password" placeholder="Password" bind:value={password} id="password" required>
-
-  <label for="confirmPassword">Confirm Password</label>
-  <input type="password" placeholder="Confirm Password" bind:value={confirmPassword} id="confirmPassword" required>
-
-  <button type="submit">Sign Up</button>
-
-
+  
+  <button type="submit">Log In</button>
 </form>

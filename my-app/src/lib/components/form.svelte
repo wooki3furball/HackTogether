@@ -1,15 +1,17 @@
 <script>
-    let username = "";
-    let password = "";
+    let projectName = "";
+    let projectDescription = "";
+    let interestList = "";
     let numberOfSpans = 64;
   
     const handleSubmit = async () => {
       // Implement your login logic here (e.g., sending data to server)
-      console.log("Username:", username);
-      console.log("Password:", password);
+      console.log("Project Name:", projectName);
+      console.log("Project Description:", projectDescription);
+      console.log("List of Interests:", interestList);
   
       // Replace this with your actual login functionality (e.g., sending data to server)
-      alert("Login submitted!");
+      alert("Form submitted!");
     };
   </script>
   
@@ -78,7 +80,7 @@
     }
   
     form {
-      z-index: 3; /* Ensure the login form appears on top */
+      z-index: 3; 
     }
   
     form {
@@ -86,7 +88,8 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%); /* Center the form relative to its position */
-        width: 400px;
+        width: 1000px;
+        height: 700px;
         background: #222;
         z-index: 1000;
         display: flex;
@@ -154,18 +157,23 @@
   
   <section>
     {#each Array(numberOfSpans) as _, index (index)}
-    <span></span>
-  {/each}
+        <span></span>
+    {/each}
   </section>
   
   <form on:submit|preventDefault={handleSubmit}>
-    <h3>Login Here</h3>
+    <h3>Hack Together Form</h3>
     
-    <label for="username">Username</label>
-    <input type="text" placeholder="Username" bind:value={username} id="username" required>
-    
-    <label for="password">Password</label>
-    <input type="password" placeholder="Password" bind:value={password} id="password" required>
+    <label for="projectName">Project Name</label>
+    <input type="text" placeholder="Project Name" bind:value={projectName} id="projectName" required>
+
+    <label for="projectDescription">Project Description</label>
+    <input type="text" placeholder="Enter Project Description" bind:value={projectDescription} id="projectDescription" required>
+
+    <label for="interestList">Interest List</label>
+    <input type="text" placeholder="List your interests" bind:value={interestList} id="interestList">
+
     
     <button type="submit">Log In</button>
   </form>
+  

@@ -3,6 +3,7 @@ package mtd
 import (
 	"crypto/sha256"
 	"encoding/binary"
+	"fmt"
 	"math/rand"
 	"time"
 
@@ -42,4 +43,13 @@ func EndpointFactory(path string, message string) gin.HandlerFunc {
 			"message": message,
 		})
 	}
+}
+
+func RegisterEndpoint(router *gin.Engine, path string, message string) error {
+	if _, exists := RegisteredPaths[path]; exists {
+		return fmt.Errorf("duplicate endpoint: %s", path)
+	}
+	router.GET(path, EndpointFactory(path, message))
+	RegisteredPaths[path] = true
+	return nil
 }

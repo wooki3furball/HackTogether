@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"math/rand"
 
 	"Toegether/mtd" // Local Module/relative_directory with package
@@ -49,13 +50,16 @@ func main() {
 		randomMessage := "Message for " + randomPath
 
 		// Register the endpoint using the factory
-		app.GET(randomPath, mtd.EndpointFactory(randomPath, randomMessage))
+		err := mtd.RegisterEndpoint(app, randomPath, randomMessage) // Error on this line that needs to be corrected
+		if err != nil {
+			log.Fatal(err)
+		}
 	}
 
 	store := sessions.NewCookieStore([]byte("secret"))
 	app.Use(sessions.Sessions("mysession", store))
 
-	caretaker := &Caretaker{}
+	caretaker := &mtd.Caretaker{}
 
 	app.GET("/login", func(c *gin.Context) {
 		session := sessions.Default(c)
@@ -63,19 +67,30 @@ func main() {
 		session.Save()
 
 		// Save session state
-		originator := &SessionOriginator{session: session}
+		originator := &mtd.SessionOriginator{Session: session}
 		caretaker.AddMemento(originator.SaveToSessionMemento())
 	})
 
 	app.GET("/restore", func(c *gin.Context) {
 		session := sessions.Default(c)
-		originator := &SessionOriginator{session: session}
+		// Save session state
+		originator := &mtd.SessionOriginator{Session: session}
 
 		// Assuming we want to restore the first saved state
-		if len(caretaker.mementoList) > 0 {
+		if len(caretaker.MementoList) > 0 {
 			originator.RestoreFromSessionMemento(caretaker.GetMemento(0))
 		}
 	})
+
+	err := mtd.RegisterEndpoint(app, "/hello", "Hello, World!")
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	err = mtd.RegisterEndpoint(app, "/hello", "This should fail")
+	if err != nil {
+		fmt.Println(err) // Expect an error here
+	}
 
 	// Default Route Port
 	app.Run(":8080")

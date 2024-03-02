@@ -8,7 +8,7 @@ func setupStaticFiles(app *gin.Engine) {
 		"/public/script.js":   "./src/public/script.js",
 		"/assets/favicon.ico": "./src/assets/favicon.ico",
 		"/src/app.html":       "./app/my-skeleton-app/app.html",
-		"/":                   "./app/my-skeleton-app/login.html",
+		"/":                   "./app/my-skeleton-app/src/login.html",
 	}
 
 	for urlPath, filePath := range staticFiles {

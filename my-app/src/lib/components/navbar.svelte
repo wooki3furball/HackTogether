@@ -43,8 +43,8 @@
 			<div class="row">
 				<div class="col-lg-7">
 					<h1>Find Opponents to Hack Against!</h1>
-					<button type="button" class="btn btn-dark btn-lg download-button">
-						<i class="fab fa-apple"></i> Download
+					<button type="button" class="btn btn-light btn-lg download-button">
+						<i class="fab fa-google-play"></i> Download
 					</button>
 				</div>
 			</div>

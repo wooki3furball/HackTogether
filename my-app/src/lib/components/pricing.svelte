@@ -1,14 +1,12 @@
-
-
 <section id="pricing">
-	<h2>A Plan for Every Sole's Needs</h2>
-	<p>Simple and affordable price plans for you and your feet.</p>
+	<h2>A Plan for Every Developer's Needs</h2>
+	<p>Simple and affordable price plans for you and your codebase.</p>
 
 	<div class="row">
 		<div class="pricing-column col-lg-4 col-md-6">
 			<div class="card">
 				<div class="card-header">
-					<h3>Basic</h3>
+					<h3>Noob</h3>
 				</div>
 				<div class="card-body">
 					<h2>Free</h2>
@@ -23,7 +21,7 @@
 		<div class="pricing-column col-lg-4 col-md-6">
 			<div class="card">
 				<div class="card-header">
-					<h3>Silver</h3>
+					<h3>Freelancer</h3>
 				</div>
 				<div class="card-body">
 					<h2>$49 / month</h2>
@@ -38,7 +36,7 @@
 		<div class="pricing-column col-lg-4">
 			<div class="card">
 				<div class="card-header">
-					<h3>Gold</h3>
+					<h3>Senior Architect</h3>
 				</div>
 				<div class="card-body">
 					<h2>$99 / month</h2>
@@ -53,7 +51,7 @@
 </section>
 
 <style>
-    	/* Pricing */
+	/* Pricing */
 	#pricing {
 		padding: 100px;
 		text-align: center;

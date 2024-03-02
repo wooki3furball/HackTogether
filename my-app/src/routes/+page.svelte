@@ -1,110 +1,18 @@
+<script lang="js">
+    import Navbar from "$lib/components/navbar.svelte";
+    import bizinsider from "$lib/assets/img/bizinsider.png"
+    import lady from "$lib/assets/img/lady-img.jpg";
+    import demo from "$lib/assets/img/Demo.png";
+    import iphone6 from "$lib/assets/img/iphone6.png";
+    import mashable from "$lib/assets/img/mashable.png";
+    import TechCrunch from "$lib/assets/img/TechCrunch.png";
+    import tnw from "$lib/assets/img/tnw.png";
+    import dogImg from "$lib/assets/img/dog-img.jpg";
+</script>
 
-<!DOCTYPE html>
-<html lang="en">
+  <Navbar />
 
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="U-XA-Compatible" content="ie=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-
-  <!-- Bootstrap CDN -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-
-  <!-- Icons by Font Awesome -->
-  <script src="https://kit.fontawesome.com/8221a5b36b.js" crossorigin="anonymous"></script>
-
-  <!-- JavaScript CDN -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-
-  <!-- Fonts by Google -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,900|Ubuntu&display=swap" rel="stylesheet" />
-
-  <!-- Local CSS -->
-  <link rel="stylesheet" href="./css/style.css" />
-</head>
-
-<body>
-  <section id="title">
-    <div class="container-fluid">
-      <!-- Nav Bar -->
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <!-- Hamburger Menu Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="">tindog</a>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#footer">Contact</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#pricing">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#cta">Download</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      <!-- Title -->
-      <div class="row">
-        <div class="col-lg-6">
-          <h1>Meet new and interesting dogs nearby.</h1>
-          <button type="button" class="btn btn-dark btn-lg download-button">
-            <i class="fab fa-apple"></i> Download
-          </button>
-          <button type="button" class="btn btn-outline-light btn-lg download-button">
-            <i class="fab fa-google-play"></i> Download
-          </button>
-        </div>
-        <div class="col-lg-6">
-          <img class="iphone-image" src="./img/iphone6.png" alt="iphone-mockup" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-
-  <section id="features">
-    <div class="row">
-      <div class="col-lg-4 feature-box">
-        <i class="fas fa-check-circle features-icon fa-4x"></i>
-        <h3>Easy to Use</h3>
-        <p>So easy to use, even your dog could do it.</p>
-      </div>
-
-      <div class="col-lg-4 feature-box">
-        <i class="fas fa-bullseye features-icon fa-4x"></i>
-        <h3>Elite Clientele</h3>
-        <p>We have all the dogs, the greatest dogs.</p>
-      </div>
-
-      <div class="col-lg-4 feature-box">
-        <i class="fas fa-heart features-icon fa-4x"></i>
-        <h3>Guaranteed to work</h3>
-        <p>Find the love of your dog's life or your money back.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-
-  <section id="testimonials">
+   <section id="testimonials">
     <div id="testimonial-carousel" class="carousel slide" data-ride="false">
       <div class="carousel-inner">
         <div class="carousel-item active">
@@ -112,7 +20,7 @@
             I no longer have to sniff other dogs for love. I've found the
             hottest Corgi on TinDog. Woof.
           </h2>
-          <img class="testimonial-image" src="./img/dog-img.jpg" alt="dog-profile" />
+          <img class="testimonial-image" src={bizinsider} alt="dog-profile" />
           <em>Peebles, New York</em>
         </div>
         <div class="carousel-item">
@@ -120,7 +28,7 @@
             My dog used to be so lonely, but with TinDog's help, they've found
             the love of their life. I think.
           </h2>
-          <img class="testimonial-image" src="./img/lady-img.jpg" alt="lady-profile" />
+          <img class="testimonial-image" src={lady} alt="lady-profile" />
           <em>Beverly, Illinois</em>
         </div>
       </div>
@@ -135,16 +43,12 @@
     </div>
   </section>
 
-  <!-- Press -->
-
-  <section id="press">
-    <img class="press-logo" src="./img/TechCrunch.png" alt="tc-logo" />
-    <img class="press-logo" src="./img/tnw.png" alt="tnw-logo" />
-    <img class="press-logo" src="./img/bizinsider.png" alt="biz-insider-logo" />
-    <img class="press-logo" src="./img/mashable.png" alt="mashable-logo" />
+    <section id="press">
+    <img class="press-logo" src={TechCrunch} alt="tc-logo" />
+    <img class="press-logo" src={tnw} alt="tnw-logo" />
+    <img class="press-logo" src={bizinsider} alt="biz-insider-logo" />
+    <img class="press-logo" src={mashable} alt="mashable-logo" />
   </section>
-
-  <!-- Pricing -->
 
   <section id="pricing">
     <h2>A Plan for Every Dog's Needs</h2>
@@ -181,7 +85,7 @@
             <button type="button" class="btn btn-lg btn-block btn-dark">
               Sign Up
             </button>
-          </div>
+                      </div>
         </div>
       </div>
 
@@ -204,8 +108,6 @@
     </div>
   </section>
 
-  <!-- Call to Action -->
-
   <section id="cta">
     <h4 id="footer-text">Find the True Love of Your Dog's Life Today.</h4>
     <button type="button" class="btn btn-dark btn-lg download-button">
@@ -218,7 +120,7 @@
 
   <!-- Footer -->
 
-  <footer id="footer">
+  <!-- <footer id="footer">
     <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-twitter"></i></a>
     <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-facebook-f"></i></a>
     <a target="_blank" href="#" style="color: #000;"><i class="fab footer-icons fa-instagram"></i></a>
@@ -228,7 +130,194 @@
       Made with <i class="fas heart-icon fa-heart"></i> and
       <a href="#"><i class="fab boot-icon fa-bootstrap"></i></a> by Niladri Chatterjee.
     </p>
-  </footer>
-</body>
+  </footer> -->
 
-</html>
+  <style>
+        body {
+        font-family: "Montserrat", sans-serif;
+        }
+
+        /* section id=#title */
+        #title {
+        background-color: #ff4c68;
+        color: #fff;
+        }
+
+        h1 {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.5;
+        }
+
+        .container-fluid {
+        padding: 3% 15% 7%;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+        padding: 0 0 4.5rem;
+        }
+
+        .navbar-brand {
+        font-family: "Ubuntu", sans-serif;
+        font-size: 2.5rem;
+        font-weight: bold;
+        }
+
+        .nav-item {
+        padding: 0 18px;
+        }
+
+        .nav-link {
+        font-size: 1.2rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 300;
+        }
+
+        /* Download Buttons */
+        .download-button {
+        margin: 5% 3% 5% 0;
+        }
+
+        .iphone-image {
+        width: 60%;
+        transform: rotate(25deg);
+        position: absolute;
+        right: 30%;
+        }
+
+        /* Feature Section */
+
+        .features-icon {
+        font-size: 45px;
+        color: #ef8172;
+        margin-bottom: 1rem;
+        }
+
+        #features {
+        padding: 7% 15%;
+        background-color: #fff;
+        position: relative;
+        /* z-index: 1; */
+        }
+
+        .feature-box {
+        text-align: center;
+        padding: 5%;
+        }
+
+        h3 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        font-size: 1.45rem;
+        }
+
+        p {
+        color: #8f8f8f;
+        }
+
+        .features-icon:hover {
+        color: #ff4c68;
+        }
+
+        /* Testimonial Section */
+
+        #testimonials {
+        text-align: center;
+        background-color: #ef8172;
+        color: #fff;
+        }
+
+        h2 {
+        font-size: 3rem;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 900;
+        line-height: 1.5;
+        }
+
+        .testimonial-image {
+        width: 10%;
+        border-radius: 100%;
+        margin: 20px;
+        }
+
+        #press {
+        background-color: #ef8172;
+        text-align: center;
+        padding-bottom: 3%;
+        }
+
+        .press-logo {
+        width: 15%;
+        margin: 20px 20px 50px;
+        }
+
+        .carousel-item {
+        padding: 7% 15%;
+        }
+
+        /* Pricing */
+        #pricing {
+        padding: 100px;
+        text-align: center;
+        }
+
+        .pricing-column {
+        padding: 3% 2%;
+        }
+
+        @media (max-width: 1028px) {
+        #title {
+            text-align: center;
+        }
+
+        .iphone-image {
+            position: static;
+            transform: rotate(0deg);
+        }
+        }
+
+        /* CTA Section */
+        #cta {
+        background-color: #ef8172;
+        text-align: center;
+        color: #fff;
+        padding: 4% 15%;
+        }
+
+        #footer-text {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3.5rem;
+        font-weight: 900;
+        line-height: 1.5;
+        }
+
+        #footer {
+        text-align: center;
+        padding: 8% 20% 3%;
+        }
+
+        p#copyright-text {
+        color: #8f8f8f;
+        padding: 1% 0;
+        margin-bottom: 0;
+        }
+
+        p#trademark-text {
+        color: #8f8f8f;
+        padding: 0 2%;
+        }
+
+        .footer-icons {
+        padding: 1% 1.4%;
+        }
+
+        .heart-icon {
+        color: #ff4c68;
+        }
+
+        .boot-icon {
+        color: #563d7c;
+        }
+  </style>

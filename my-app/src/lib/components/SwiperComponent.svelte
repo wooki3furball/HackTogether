@@ -91,7 +91,7 @@
         flex-direction: column;
         align-items: center;
         min-height: 100vh;
-		min-width: 180vh;
+        min-width: 180vh;
         background-color: #181818; /* Dark background */
         color: #333;
         font-family: 'Helvetica Neue', Arial, sans-serif;
@@ -101,18 +101,35 @@
 
     /* Styling for project details */
     .project-details {
-        background-color: #ffffff; /* Slightly lighter than the container for depth */
-        color: #181818; /* Soft green for text */
+        background-color: #2c3e50; /* Darker background color */
+        color: #ecf0f1; /* Light text color */
         padding: 20px;
         margin-bottom: 20px;
         border-radius: 10px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
-		height: 500px;
-        width: 20%; /* Adjust based on preference */
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Increased shadow for a lifted effect */
+        height: 300px;
+        width: 40%; /* Adjusted based on preference */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Improved spacing */
+        transition: transform 0.3s ease-in-out; /* Smooth transition on hover */
+
+        /* Gradient background for a subtle effect */
+        background: linear-gradient(45deg, #2c3e50, #34495e);
+    }
+
+    .project-details:hover {
+        transform: scale(1.05); /* Scale up on hover for an interactive effect */
     }
 
     h2 {
-        color: #87b245; /* Brighter green for headings to stand out */
+        color: #3498db; /* Highlight color for headings */
+        margin-bottom: 12px; /* Increased margin for better spacing */
+    }
+
+    p {
+        font-size: 1.12rem; /* Slightly reduced font size for better readability */
+        line-height: 1.5; /* Improved line height */
     }
 
     button {
@@ -137,8 +154,10 @@
 
     .button-group {
         display: flex;
+        gap: 10px; /* Improved spacing between buttons */
     }
 </style>
+
 
 
 <div class="container">

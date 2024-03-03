@@ -1,7 +1,3 @@
-<script lang="js">
-	import purpleFoot from '$lib/assets/img/hackerImage.jpg';
-</script>
-
 <section id="title">
 	<div class="container-fluid">
 		<!-- Nav Bar -->
@@ -26,44 +22,22 @@
 						<a class="nav-link" href="/login">Login</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="/signup">SignUp</a>
+						<a class="nav-link" href="/signup">Sign Up</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/swiperpage">Swiper</a>
 					</li>
-					<li class="nav-item aboutLink">
-						<a class="nav-link" href="/about">About</a>
-					</li>
+
 				</ul>
-				<div class="col-md-6">
-					<img class="iphone-image" src={purpleFoot} alt="iphone-mockup" />
-				</div>
 			</div>
 		</nav>
-
-		<!-- Title -->
-		<div class="titleBS">
-			<div class="row">
-				<div class="col-lg-7">
-					<h1>Find Opponents to Hack Against!</h1>
-					<button type="button" class="btn btn-light btn-lg download-button">
-						<i class="fab fa-google-play"></i> Download
-					</button>
-				</div>
-			</div>
-		</div>
 	</div>
 </section>
 
 <style>
 	#title {
-		background-color: #000000;
-		color: #fff;
-	}
-
-	.aboutLink {
-		position: relative;
-		z-index: 77;
+		background-color: #181818	;
+		color: #0f0;
 	}
 
 	h1 {
@@ -80,16 +54,19 @@
 	/* Navigation Bar */
 	.navbar {
 		padding: 0 0 4.5rem;
+		color: #0f0;
 	}
 
 	.navbar-brand {
 		font-family: 'Ubuntu', sans-serif;
 		font-size: 2.5rem;
 		font-weight: bold;
+		color: #0f0;
 	}
 
 	.nav-item {
 		padding: 0 18px;
+		color: #0f0;
 	}
 
 	.nav-link {
@@ -102,11 +79,5 @@
 	.download-button {
 		margin: 5% 3% 5% 0;
 	}
-
-	.iphone-image {
-		width: 60%;
-		transform: rotate(25deg);
-		position: absolute;
-		right: -12%;
-	}
+	
 </style>

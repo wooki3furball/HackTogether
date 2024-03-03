@@ -160,7 +160,7 @@
 </section>
 
 <form on:submit|preventDefault={handleSubmit}>
-  <h3>Login Here</h3>
+  <h3>Signup Here</h3>
 
   <label for="name">Name</label>
   <input type="name" placeholder="Name" bind:value={name} id="name" required>
@@ -171,5 +171,5 @@
   <label for="password">Password</label>
   <input type="password" placeholder="Password" bind:value={password} id="password" required>
   
-  <button type="submit">Log In</button>
+  <button type="submit">Sign Up</button>
 </form>

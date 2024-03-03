@@ -1,7 +1,9 @@
 <script>
+    import {goto} from "$app/navigation"
     let username = "";
     let password = "";
     let numberOfSpans = 64;
+    
   
     const handleSubmit = async () => {
       // Implement your login logic here (e.g., sending data to server)
@@ -9,7 +11,8 @@
       console.log("Password:", password);
   
       // Replace this with your actual login functionality (e.g., sending data to server)
-      alert("Login submitted!");
+    //   alert("Login submitted!");
+
     };
   </script>
   
@@ -167,5 +170,7 @@
     <label for="password">Password</label>
     <input type="password" placeholder="Password" bind:value={password} id="password" required>
     
-    <button type="submit">Log In</button>
+    <button on:click={()=>{
+        goto('/form');
+    }} type="submit">Log In</button>
   </form>
